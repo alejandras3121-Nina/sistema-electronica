@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Facturación</title>
+  <link rel="stylesheet" href="../css/InterFacturar.css" />
+        <link rel="stylesheet" href="../css/FormMenu.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+<body>
+  <!-- NAVBAR DINÁMICA -->
+  <div id="navbar-placeholder"></div>
+
+
+  <div class="ventana">
+    <div class="barra-superior">🧾 Sistema de Facturación</div>
+    <h2 class="titulo">Facturación</h2>
+
+    <div class="filtros">
+      <div class="campo">
+        <label>Cliente:</label>
+        <select id="selectCliente">
+          <option value="">Seleccione cliente...</option>
+        </select>
+        <input type="text" placeholder="Buscar cliente..." id="buscarCliente">
+        <button class="btn buscar">🔍</button>
+      </div>
+
+ <div class="campo">
+  <label>Producto:</label>
+  <select id="selectProducto">
+    <option value="">Seleccione producto...</option>
+  </select>
+  <input type="text" placeholder="Buscar producto..." id="buscarProducto">
+  <button class="btn buscar">🔍</button>
+  <label>Cantidad:</label>
+  <input type="number" min="1" placeholder="0" id="cantidadProducto">
+  <button class="btn anadir">➕ Añadir</button>
+</div>
+
+
+    <div class="tabla-contenedor">
+      <table>
+        <thead>
+          <tr>
+            <th>N</th><th>Nombre</th><th>Cantidad</th><th>P. Unitario</th>
+            <th>SubTotal</th><th>Descuento</th><th>Iva</th><th>Total</th><th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aquí se agregan productos dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="acciones">
+      <div class="registro">
+        <div class="icono">🖨️</div>
+        <button class="btn registrar">Registrar Venta</button>
+      </div>
+
+      <div class="resumen">
+        <label>Subtotal:<input type="text" value="0.0" readonly></label>
+        
+                  <div class="form-group">
+                    <label for="Descuento">Descuento:</label>
+                    <select id="Descuento">
+                        <option value="">Seleccione Descuento:</option>
+                        <option value="0">SIN Descuento</option>
+                        <option value="10">10%</option>
+                        <option value="15">15%</option>
+                        <option value="20" selected>20%</option>
+                    </select>
+                <div class="form-group">
+                    <label for="iva">IVA:</label>
+                    <select id="iva">
+                        <option value="">Seleccione IVA:</option>
+                        <option value="0">No grava IVA</option>
+                        <option value="10">10%</option>
+                        <option value="14">14%</option>
+                        <option value="16" selected>16%</option>
+                    </select>
+        <label>Total a pagar:<input type="text" value="0.0" readonly></label>
+        <label>Efectivo:<input type="number" step="0.01" min="0"></label>
+        <label>Cambio:<input type="text" value="0.0" readonly></label>
+        <button class="btn calcular">💰 Calcular Cambio</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    fetch('../Vista/navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        inicializarNavbar(); // Aquí se llama la función
+      });
+  </script>
+  <script src="../css/js/facturacion.js"></script>
+    <script src="../css/js/facturacion-core.js"></script>
+    <script src="../css/js/ticketPDF.js"></script>
+      <script src="../css/js/navMenu.js"></script>
+
+</body>
+</html>

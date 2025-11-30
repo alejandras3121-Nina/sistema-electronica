@@ -1,0 +1,102 @@
+<!-- FormMenu -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Ventas</title>
+    <link rel="stylesheet" href="../css/FormMenu.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>Sistema de Ventas</h2>
+            </div>
+
+            <ul class="nav-menu" id="nav-menu">
+
+
+                <!-- Producto -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📦</span>
+                        Producto
+                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-item" onclick="openModule('../Vista/InterGestionarProductoEmpleado.html')">
+                            <span class="dropdown-icon">📦</span>
+                            Gestionar Productos
+                        </a>
+                    </div>
+                </li>
+
+                <!-- Cliente -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">👥</span>
+                        Cliente
+                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-item" onclick="openModule('../Vista/InterGestionarCliente.html')">
+                            <span class="dropdown-icon">👥</span>
+                            Gestionar Clientes
+                        </a>
+                    </div>
+                </li>
+
+                <!-- Facturar -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🛒</span>
+                        Facturar
+                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-item" onclick="openModule('../Vista/InterFacturar.html')">
+                            <span class="dropdown-icon">➕</span>
+                            Nueva Venta
+                        </a>
+                    </div>
+                </li>
+
+                <!-- Cerrar Sesión -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" onclick="cerrarSesion()">
+                        <span class="nav-icon">🚪</span>
+                        Cerrar Sesión
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Menú hamburguesa -->
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="main-content" id="main-content">
+        <div class="welcome-section">
+            <h1>Bienvenido al Sistema de Ventas</h1>
+            <p>Selecciona una opción del menú para comenzar</p>
+        </div>
+
+        <!-- Área de contenido dinámico -->
+        <div class="content-area" id="content-area">
+            <!-- Aquí se cargará el contenido dinámicamente -->
+        </div>
+    </div>
+
+    <!-- Capa de carga -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Cargando...</p>
+    </div>
+
+    <script src="../css/js/FormMenu.js"></script>
+    <script src="../css/js/ControllerMenu.js"></script>
+</body>
+</html>

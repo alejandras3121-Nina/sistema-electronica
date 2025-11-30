@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Productos</title>
+    <link rel="stylesheet" href="../css/InterGestionarProducto.css">
+    <link rel="stylesheet" href="../css/FormMenu.css">
+</head>
+<body>
+  <!-- NAVBAR DINÁMICA -->
+  <div id="navbar-placeholder"></div>
+
+    <div class="container">
+        <div class="header">
+            Administrar Productos
+        </div>
+
+        <div class="main-content">
+            <div class="table-section">
+                <div class="table-container">
+                    <table id="productTable">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Descripción</th>
+                                <th>IVA</th>
+                                <th>Categoría</th>
+                                <th>Proveedor</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los productos se cargarán dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="actions-section">
+                <button class="btn btn-new" id="btnAgregar">
+                    Agregar Producto
+                </button>
+                <button class="btn btn-update" id="btnActualizar">
+                    Actualizar
+                </button>
+                <button class="btn btn-delete" id="btnEliminar">
+                    Eliminar
+                </button>
+                <button class="btn btn-save" id="btnGuardar">
+                    Guardar
+                </button>
+            </div>
+            
+            <div class="form-section">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" placeholder="Nombre del producto">
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio:</label>
+                        <input type="number" id="precio" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="iva">IVA:</label>
+                        <select id="iva">
+                            <option value="">Seleccione IVA:</option>
+                            <option value="0">No grava IVA</option>
+                            <option value="10">10%</option>
+                            <option value="14">14%</option>
+                            <option value="16" selected>16%</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" id="cantidad" disabled placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <input type="text" id="descripcion" placeholder="Descripción del producto">
+                    </div>
+                    <div class="form-group">
+                        <label for="categoria">Categoría:</label>
+                        <select id="categoria">
+                            <option value="">Seleccione categoría...</option>
+                            <!-- Las categorías se cargarán dinámicamente -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="proveedor">Proveedor:</label>
+                        <select id="proveedor">
+                            <option value="">Seleccione proveedor...</option>
+                            <!-- Los proveedores se cargarán dinámicamente -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+    
+    <script>
+        fetch('../Vista/navbar.html')
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+            inicializarNavbar(); // Aquí se llama la función
+          });
+    </script>
+    <script src="../css/js/InterGestionarProductos.js"></script>
+    <script src="../css/js/cargarCategorias.js"></script>   
+    <script src="../css/js/navMenu.js"></script>
+    <script src="../css/js/filtros-productos.js"></script>
+</body>
+</html>

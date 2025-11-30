@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestionar Clientes</title>
+
+  <link rel="stylesheet" href="../css/InterGestionarCliente.css" />
+    <link rel="stylesheet" href="../css/FormMenu.css" />
+</head>
+<body>
+
+  <!-- NAVBAR DINÁMICA -->
+  <div id="navbar-placeholder"></div>
+
+  <div class="container">
+    <h1>Administrar Clientes</h1>
+
+    <div class="table-section">
+      <table id="clientes-table">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cedula</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aquí se insertarán los datos dinámicamente -->
+        </tbody>
+      </table>
+
+      <div class="actions">
+        <button id="actualizar-btn" disabled>Actualizar</button>
+        <button id="eliminar-btn" disabled>Eliminar</button>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <form id="cliente-form">
+        <label>Nombre:
+          <input type="text" id="nombre" required />
+        </label>
+        <label>Apellido:
+          <input type="text" id="apellido" required />
+        </label>
+        <label>Cédula:
+          <input type="text" id="cedula" required />
+        </label>
+        <label>Teléfono:
+          <input type="text" id="telefono" required />
+        </label>
+        <label>Dirección:
+          <input type="text" id="direccion" required />
+        </label>
+        <label>Estado:
+          <select id="estado" required>
+            <option value="1">Activo</option>
+            <option value="0">Inactivo</option>
+          </select>
+        </label>
+
+        <div class="form-buttons">
+          <button type="submit" id="crear-btn">Crear Cliente</button>
+          <button type="button" id="guardar-btn" disabled>Guardar Cambios</button>
+          <button type="button" id="cancelar-btn" disabled>Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Carga navbar y luego inicializa JS -->
+  <script>
+    fetch('../Vista/navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        inicializarNavbar(); // Aquí se llama la función
+      });
+  </script>
+
+  <script src="../css/js/InterGestionarCliente.js"></script>
+  <script src="../css/js/navMenu.js"></script>
+</body>
+</html>

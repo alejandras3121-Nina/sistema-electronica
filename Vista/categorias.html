@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestionar Categorías</title>
+  <link rel="stylesheet" href="../css/categorias.css">
+  <link rel="stylesheet" href="../css/FormMenu.css">
+  <style>
+    /* Estilos adicionales para la tabla y botones */
+    .selected {
+      background-color: #e3f2fd !important;
+    }
+    
+    .estado-badge {
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    .estado-badge.activo {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    .estado-badge.inactivo {
+      background-color: #f44336;
+      color: white;
+    }
+    
+    .btn-guardar {
+      background-color: #2196F3;
+      color: white;
+      display: none;
+    }
+    
+    table tbody tr:hover {
+      background-color: #f5f5f5;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR DINÁMICA -->
+  <div id="navbar-placeholder"></div>
+
+  <div class="container">
+    <h1>Administrar Categorías</h1>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID Categoría</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Los datos se cargarán dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="buttons">
+      <button class="btn btn-new">Nueva Categoria</button>
+      <button class="btn btn-actualizar">Actualizar</button>
+      <button class="btn btn-eliminar">Eliminar</button>
+      <!-- El botón Guardar se añadirá dinámicamente -->
+    </div>
+
+    <div class="formulario">
+      <div class="form-row">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" placeholder="Ingrese la descripción de la categoría" maxlength="200">
+      </div>
+    </div>
+  </div>
+    <!-- Carga navbar y luego inicializa JS -->
+  <script>
+    fetch('../Vista/navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        inicializarNavbar(); // Aquí se llama la función
+      });
+  </script>
+  <script src="../css/js/navMenu.js"></script>
+  <script src="../css/js/categorias.js"></script>
+</body>
+</html>

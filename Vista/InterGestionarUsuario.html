@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionar Usuarios</title>
+    <link rel="stylesheet" href="../css/InterGestionarUsuario.css">
+    <link rel="stylesheet" href="../css/FormMenu.css">
+</head>
+<body>
+
+  <!-- NAVBAR DINÁMICA -->
+  <div id="navbar-placeholder"></div>
+
+
+    <div class="container">
+        <h1>Administrar Usuarios</h1>
+        
+        <div class="table-container">
+            <table id="tabla-usuarios">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Usuario</th>
+                        <th>Password</th>
+                        <th>Teléfono</th>
+                        <th>Tipo Usuario</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn crear">Crear</button>
+            <button class="btn actualizar">Actualizar</button>
+            <button class="btn eliminar">Eliminar</button>
+            <button type="button" id="guardar-btn" disabled>Guardar Cambios</button>
+        </div>
+        
+        <div class="formulario">
+            <div class="form-row">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre">
+                
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido">
+            </div>
+            
+            <div class="form-row">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario">
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password">
+            </div>
+            
+            <div class="form-row">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono">
+                
+                <label for="idTipoUsuario">Tipo de Usuario:</label>
+                <select id="idTipoUsuario">
+                    <option value="">Seleccione tipo de usuario</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <label for="estado">Estado:</label>
+                <select id="estado" disabled>
+                    <option value="">Seleccione estado</option>
+                </select>
+            </div>
+            
+        </div>
+    </div>
+        <!-- Carga navbar y luego inicializa JS -->
+  <script>
+    fetch('../Vista/navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        inicializarNavbar(); // Aquí se llama la función
+      });
+  </script>
+    <script src="../css/js/InterGestionarUsuarios.js"></script>
+    <script src="../css/js/navMenu.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+[2025-06-01 07:52:55] Intento de login - Usuario: pinto
+[2025-06-01 07:52:55] [Usuario Model] Ejecutando consulta de login para usuario: pinto
+[2025-06-01 07:52:55] [Usuario Model] SQL: SELECT 
+                    u.idUsuario,
+                    u.nombre,
+                    u.apellido,
+                    u.usuario,
+                    u.telefono,
+                    u.estado,
+                    u.idTipoUsuario,
+                    t.descripcion AS tipo_usuario
+                FROM tb_usuario u
+                JOIN tb_tipo_usuario t ON u.idTipoUsuario = t.idTipoUsuario
+                WHERE u.usuario = :usuario 
+                  AND u.password = :password 
+                  AND u.estado = 1
+[2025-06-01 07:52:55] [Usuario Model] Consulta ejecutada. Registros encontrados: 1
+[2025-06-01 07:52:55] [Usuario Model] Usuario encontrado - ID: , idTipoUsuario: , tipo_usuario: Administrador
+[2025-06-01 07:52:55] Resultado de consulta - Cantidad de registros: 1
+[2025-06-01 07:52:55] Usuario encontrado - ID: , Nombre: Luis Silva
+[2025-06-01 07:52:55] Tipo de usuario - ID: NO DEFINIDO, Descripción: Administrador
+[2025-06-01 07:52:55] ERROR CRÍTICO: La propiedad idTipoUsuario no existe en el objeto usuario
+[2025-06-01 07:52:55] Propiedades disponibles: idusuario, nombre, apellido, usuario, telefono, estado, idtipousuario, tipo_usuario

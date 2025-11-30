@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Proveedores</title>
+    <link rel="stylesheet" href="../css/InterGestionarProveedor.css">
+    <link rel="stylesheet" href="../css/FormMenu.css">
+</head>
+<body>
+    <!-- NAVBAR DINÁMICA -->
+    <div id="navbar-placeholder"></div>
+
+    <div class="container">
+        <h1>Administrar Proveedores</h1>
+        
+        <div class="table-container">
+            <table id="tabla-proveedores">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Empresa</th>
+                        <th>Contacto</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Correo</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los datos se cargarán dinámicamente aquí -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn crear">Crear</button>
+            <button class="btn actualizar">Actualizar</button>
+            <button class="btn eliminar">Eliminar</button>
+            <button type="button" id="guardar-btn">Guardar Cambios</button>
+        </div>
+
+        <div class="formulario">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="nombreEmpresa">Empresa:</label>
+                    <input type="text" id="nombreEmpresa">
+                </div>
+
+                <div class="form-group">
+                    <label for="nombreContacto">Contacto:</label>
+                    <input type="text" id="nombreContacto">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono">
+                </div>
+
+                <div class="form-group">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion">
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo">
+                </div>
+
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <select id="estado">
+                        <option value="">Seleccione estado</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Función para inicializar el navbar
+        function inicializarNavbar() {
+            console.log('Navbar inicializado');
+        }
+
+        // Cargar navbar
+        fetch('../Vista/navbar.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                inicializarNavbar();
+            })
+            .catch(error => console.error('Error cargando navbar:', error));
+    </script>
+    
+    <script src="../css/js/InterGestionarProveedores.js"></script>
+    <script src="../css/js/navMenu.js"></script>
+</body>
+</html>
